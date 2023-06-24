@@ -43,6 +43,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   max-width: 80%;
+  padding: 15px 0;
   gap: 10px;
 }
 
@@ -53,3 +54,31 @@ ul li {
   flex-grow: 1;
   text-align: center;
 }
+
+/* Tablet */
+@media screen 
+  and (min-width: 768px) 
+  and (max-width: 1023px) {
+    ul {
+      width: 50%;
+    }
+}
+
+@media screen 
+  and (min-width: 1024px) {
+    ul {
+      width: 25%;
+    }
+}
+
+/* @media (min-width: 768px) and (max-width: 992px){
+  .ul {
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1024px){
+  .ul {
+    max-width: 50%;
+  }
+} */
