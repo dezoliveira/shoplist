@@ -72,7 +72,7 @@ const renderList = (item) => {
 const clearList = () => {
   shoppingList.innerHTML = ''
   input.value = ''
-  input.focus()
+  // input.focus()
 }
 
 btnAdd.addEventListener('click', getInput)

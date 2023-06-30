@@ -20,7 +20,7 @@ body {
 }
 
 .container img {
- width: 250px;
+  width: 200px;
 }
 
 .container input {
@@ -79,11 +79,11 @@ ul li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 5px;
   background-color: crimson;
   width: 100%;
   color: #fff;
-  padding: 5px 10px;
+  padding: 8px 15px;
+  /* padding: 5px 10px; */
   text-align: center;
 }
 
@@ -97,14 +97,14 @@ ul li i {
   and (min-width: 768px) 
   and (max-width: 1023px) {
     ul {
-      width: 50%;
+      width: 200px;
     }
 }
 
 @media screen 
   and (min-width: 1024px) {
     ul {
-      width: 25%;
+      width: 200px;
     }
 }
 
