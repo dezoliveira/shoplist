@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
   databaseURL: "https://shopiilist-default-rtdb.firebaseio.com/"
@@ -23,7 +23,7 @@ onValue(shoppingListDB, (snapshot) => {
     let currentItemID = currentItem[0]
     let currentItemValue = currentItem[1]
 
-    renderList(currentItemValue)
+    renderList(currentItem)
   }
 })
 
@@ -36,10 +36,27 @@ const getInput = () => {
   } 
 }
 
-const renderList = (inputValue) => {
-  shoppingList.innerHTML += `
-    <li>${inputValue}</li>
-  `
+const renderList = (item) => {
+  let itemID = item[0]
+  let itemValue = item[1]
+
+  let element = document.createElement('li') 
+  element.textContent = itemValue
+
+  let icon = document.createElement('i')
+  icon.className = "fa-regular fa-circle-xmark"
+
+  element.append(icon)
+  
+  element.addEventListener('click', function() {
+    // let itemOnFirebase = ref(database, `/shoppingList/${itemID}}`)
+    // console.log(itemOnFirebase)
+    // remove(itemOnFirebase)
+    let itemOnFirebase = ref(database, `/shoppingList/${itemID}`)
+    remove(itemOnFirebase)
+  })
+
+  shoppingList.append(element)
 }
 
 const clearList = () => {
