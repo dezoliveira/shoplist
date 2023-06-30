@@ -13,11 +13,29 @@ const input = document.getElementById("input")
 const btnAdd = document.getElementById("btnAdd")
 const shoppingList = document.getElementById("shopping-list")
 const listTitle = document.getElementsByTagName("p")
-console.log(listTitle)
 let listArray = []
 
 onValue(shoppingListDB, (snapshot) => {
   
+  //Firebase verification
+  // if (snapshot.exists()) {
+  //  
+  //   listArray = Object.entries(snapshot.val())
+
+  //   clearList()
+
+  //   for (let i in listArray) {
+  //     let currentItem = listArray[i] 
+  //     let currentItemID = currentItem[0]
+  //     let currentItemValue = currentItem[1]
+
+  //     renderList(currentItem)
+  //   }
+  // 
+  // } else {
+  //   shoppingList.innerHTML = `nenhum item na lista.`
+  // }
+
   listArray = Object.entries(snapshot.val() || [])
 
   if(!listArray.length) {

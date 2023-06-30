@@ -10,7 +10,9 @@
 
 body {
   background-color: #fff;
+  user-select: none;
 }
+
 .container {
   display: flex;
   flex-direction: column;
