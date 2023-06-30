@@ -12,10 +12,20 @@ const shoppingListDB = ref(database, "shoppingList")
 const input = document.getElementById("input")
 const btnAdd = document.getElementById("btnAdd")
 const shoppingList = document.getElementById("shopping-list")
+const listTitle = document.getElementsByTagName("p")
+console.log(listTitle)
+let listArray = []
 
 onValue(shoppingListDB, (snapshot) => {
-  let listArray = Object.entries(snapshot.val())
   
+  listArray = Object.entries(snapshot.val() || [])
+
+  if(!listArray.length) {
+    listTitle[0].style.display = "none" 
+  } else {
+    listTitle[0].style.display = "block"
+  }
+    
   clearList()
 
   for (let i in listArray) {
