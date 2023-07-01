@@ -12,46 +12,32 @@ const shoppingListDB = ref(database, "shoppingList")
 const input = document.getElementById("input")
 const btnAdd = document.getElementById("btnAdd")
 const shoppingList = document.getElementById("shopping-list")
-const listTitle = document.getElementsByTagName("p")
-let listArray = []
 
 onValue(shoppingListDB, (snapshot) => {
   
   //Firebase verification
-  // if (snapshot.exists()) {
-  //  
-  //   listArray = Object.entries(snapshot.val())
+  if (snapshot.exists()) {
+   
+    let listArray = Object.entries(snapshot.val())
 
-  //   clearList()
+    clearList()
 
-  //   for (let i in listArray) {
-  //     let currentItem = listArray[i] 
-  //     let currentItemID = currentItem[0]
-  //     let currentItemValue = currentItem[1]
+    shoppingList.innerHTML = `
+      <p>Items da Lista:</p>
+    `
 
-  //     renderList(currentItem)
-  //   }
-  // 
-  // } else {
-  //   shoppingList.innerHTML = `nenhum item na lista.`
-  // }
+    for (let i in listArray) {
+      let currentItem = listArray[i] 
+      let currentItemID = currentItem[0]
+      let currentItemValue = currentItem[1]
 
-  listArray = Object.entries(snapshot.val() || [])
-
-  if(!listArray.length) {
-    listTitle[0].style.display = "none" 
+      renderList(currentItem)
+    }
+  
   } else {
-    listTitle[0].style.display = "block"
-  }
-    
-  clearList()
-
-  for (let i in listArray) {
-    let currentItem = listArray[i] 
-    let currentItemID = currentItem[0]
-    let currentItemValue = currentItem[1]
-
-    renderList(currentItem)
+    shoppingList.innerHTML = `
+      <p>Nenhum item na lista. 😅</p>
+    `
   }
 })
 
@@ -74,12 +60,14 @@ const renderList = (item) => {
   let icon = document.createElement('i')
   icon.className = "fa-regular fa-circle-xmark"
 
+  //A Fazer
+  element.addEventListener('click', (e) => {
+    
+  })
+
   element.append(icon)
   
   element.addEventListener('click', function() {
-    // let itemOnFirebase = ref(database, `/shoppingList/${itemID}}`)
-    // console.log(itemOnFirebase)
-    // remove(itemOnFirebase)
     let itemOnFirebase = ref(database, `/shoppingList/${itemID}`)
     remove(itemOnFirebase)
   })
