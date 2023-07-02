@@ -16,13 +16,26 @@
   <div class="container">
     <img src="assets/logo.jpg"/>
     <input class="product" type="text" id="input" placeholder="Adicione um item a lista"/>
-    <button id="btnAdd">Adicionar</button>
+    <button id="btnAdd" class="btn-primary">Adicionar</button>
     <div class="list">
       <ul id="shopping-list">
       
       </ul>
     </div>
     </ul>
+    <div class="backdrop">
+      <div class="modal">
+        <span class="close-button">
+          <i class="fa fa-times"></i>
+        </span>
+        <h1>Excluir Item</h1>
+        <p>Tem certeza que deseja excluir o item Hamburger ?</p>
+        <div class="btn-group">
+          <button class="btn-success">OK</button>
+          <button class="btn-danger">Cancelar</button>
+        <div>
+      </div>
+    </div>
   </div>
   <script src="script.js" type="module"></script>
 </body>

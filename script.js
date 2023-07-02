@@ -60,16 +60,11 @@ const renderList = (item) => {
   let icon = document.createElement('i')
   icon.className = "fa-regular fa-circle-xmark"
 
-  //A Fazer
-  element.addEventListener('click', (e) => {
-    
-  })
-
   element.append(icon)
   
-  element.addEventListener('click', function() {
-    let itemOnFirebase = ref(database, `/shoppingList/${itemID}`)
-    remove(itemOnFirebase)
+  icon.addEventListener('click', function() {
+    // let itemOnFirebase = ref(database, `/shoppingList/${itemID}`)
+    // remove(itemOnFirebase)
   })
 
   shoppingList.append(element)
