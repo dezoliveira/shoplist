@@ -65,9 +65,22 @@ const renderList = (item) => {
   icon.addEventListener('click', function() {
     // let itemOnFirebase = ref(database, `/shoppingList/${itemID}`)
     // remove(itemOnFirebase)
+    modalToggle()
+
   })
 
   shoppingList.append(element)
+}
+
+const modalToggle = () => {
+  let modal = document.querySelector('.backdrop')
+  modal.classList.remove('hide')
+  modal.classList.add('show')
+
+  document.querySelector('.close-button').addEventListener('click', () => {
+    modal.classList.remove('show')
+    modal.classList.add('hide')
+  })
 }
 
 const clearList = () => {
