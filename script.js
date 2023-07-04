@@ -80,22 +80,28 @@ const renderList = (item) => {
 }
 
 const modalToggle = (itemID) => {
+  let id = itemID
   const modal = document.querySelector('.backdrop')
   modal.classList.remove('hide')
   modal.classList.add('show')
   
-  const buttons = ['.close-button', '#btn-cancel', '#btn-confirm']
+  const buttons = [ 
+    '.close-button', 
+    '#btn-cancel', 
+    '#btn-confirm'
+  ]
   
   buttons.forEach((item) => {
     document.querySelector(item).addEventListener('click', () => {
       if (item === '#btn-confirm') {
-        let itemOnFirebase = ref(database, `/shoppingList/${itemID}`)
+        let itemOnFirebase = ref(database, `/shoppingList/${id}`)
         remove(itemOnFirebase)
         modal.classList.remove('show')
         modal.classList.add('hide')
       } else {
         modal.classList.remove('show')
         modal.classList.add('hide')
+        id = null
       }
     })
   })
