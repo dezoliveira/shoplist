@@ -65,21 +65,32 @@ const renderList = (item) => {
   icon.addEventListener('click', function() {
     // let itemOnFirebase = ref(database, `/shoppingList/${itemID}`)
     // remove(itemOnFirebase)
-    modalToggle()
+    modalToggle(itemID)
 
   })
 
   shoppingList.append(element)
 }
 
-const modalToggle = () => {
-  let modal = document.querySelector('.backdrop')
+const modalToggle = (itemID) => {
+  const modal = document.querySelector('.backdrop')
   modal.classList.remove('hide')
   modal.classList.add('show')
-
-  document.querySelector('.close-button').addEventListener('click', () => {
-    modal.classList.remove('show')
-    modal.classList.add('hide')
+  
+  const buttons = ['.close-button', '#btn-cancel', '#btn-confirm']
+  
+  buttons.forEach((item) => {
+    document.querySelector(item).addEventListener('click', () => {
+      if (item === '#btn-confirm') {
+        let itemOnFirebase = ref(database, `/shoppingList/${itemID}`)
+        remove(itemOnFirebase)
+        modal.classList.remove('show')
+        modal.classList.add('hide')
+      } else {
+        modal.classList.remove('show')
+        modal.classList.add('hide')
+      }
+    })
   })
 }
 
