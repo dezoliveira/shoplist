@@ -13,6 +13,13 @@ const input = document.getElementById("input")
 const btnAdd = document.getElementById("btnAdd")
 const shoppingList = document.getElementById("shopping-list")
 
+window.onload = () => {
+  let online = navigator.onLine;
+  if (!online) {
+    alert('Verifique a sua conexão com a internet!')
+  }
+}
+
 onValue(shoppingListDB, (snapshot) => {
   
   //Firebase verification

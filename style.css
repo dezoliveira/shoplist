@@ -112,19 +112,23 @@ ul li i {
   justify-content: center;
 }
 
-.backdrop .modal {
+.modal {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 70%;
-  height: 40%;
+  height: 30%;
   padding: 20px;
   background-color: #fff;
 }
 
-.btn-group {
+.modal p {
+  text-align: center;
+}
+
+.modal .btn-group {
   display: flex;
   align-items: center;
   align-self: flex-end;
@@ -132,16 +136,16 @@ ul li i {
   width: 100%; 
 }
 
-.btn-group button {
+.modal .btn-group button {
   width: 100%;
   margin: 10px;
 }
 
-.btn-group .btn-success {
+.btn-success {
   background-color: #22c55e;
 }
 
-.btn-group .btn-danger {
+.btn-danger {
   background-color: #ef4444;
 }
 
